@@ -128,7 +128,7 @@ public class FriendCommand extends Command {
                         if (!plugin.getMasterConfig().isBanPlayer(player.getName())) {
                             if(!plugin.getMasterConfig().isBanPlayer(args[1])) {
                                 if (playerCacheConfig.isEachFollow(args[1])) {
-                                    if (!plugin.getMasterConfig().isEnableTalkWithFriend()) {
+                                    if (plugin.getMasterConfig().isEnableTalkWithFriend()) {
                                         Player player1 = plugin.getServer().getPlayer(args[1]);
                                         PlayerCacheConfig playerCacheConfig1 = new PlayerCacheConfig(args[1]);
                                         if (player1 != null) {

@@ -3,6 +3,7 @@ package top.wetabq.wguild.config;
 import cn.nukkit.Player;
 import cn.nukkit.utils.TextFormat;
 import top.wetabq.wguild.WGuild;
+import top.wetabq.wguild.utils.Constant;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -122,10 +123,12 @@ public class PlayerCacheConfig extends WGuildConfig implements WGuildConfigInter
         playerCacheConfig.addFollowing(this.getPlayerName());
         Player player = WGuild.getInstance().getServer().getPlayerExact(playerName);
         if (player != null && playerCacheConfig.getNoticeSwitch()) {
+            player.sendMessage(TextFormat.colorize(Constant.TITLE + "&e玩家 「&c" + playerName + "&e」 &e关注了你"));
             player.sendTip(TextFormat.colorize("&e玩家 「&c" + playerName + "&e」 &e关注了你"));
         }
         Player player0 = WGuild.getInstance().getServer().getPlayerExact(this.getPlayerName());
         if (player0 != null && this.getNoticeSwitch()) {
+            player0.sendMessage(TextFormat.colorize(Constant.TITLE + "&e你成功关注了 「&c" + playerName + "&e」"));
             player0.sendTip(TextFormat.colorize("&e你成功关注了 「&c" + playerName + "&e」"));
         }
         this.save();
