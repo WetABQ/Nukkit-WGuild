@@ -123,8 +123,8 @@ public class PlayerCacheConfig extends WGuildConfig implements WGuildConfigInter
         playerCacheConfig.addFollowing(this.getPlayerName());
         Player player = WGuild.getInstance().getServer().getPlayerExact(playerName);
         if (player != null && playerCacheConfig.getNoticeSwitch()) {
-            player.sendMessage(TextFormat.colorize(Constant.TITLE + "&e玩家 「&c" + playerName + "&e」 &e关注了你"));
-            player.sendTip(TextFormat.colorize("&e玩家 「&c" + playerName + "&e」 &e关注了你"));
+            player.sendMessage(TextFormat.colorize(Constant.TITLE + "&e玩家 「&c" + player.getName() + "&e」 &e关注了你"));
+            player.sendTip(TextFormat.colorize("&e玩家 「&c" + player.getName() + "&e」 &e关注了你"));
         }
         Player player0 = WGuild.getInstance().getServer().getPlayerExact(this.getPlayerName());
         if (player0 != null && this.getNoticeSwitch()) {
@@ -145,7 +145,7 @@ public class PlayerCacheConfig extends WGuildConfig implements WGuildConfigInter
         playerCacheConfig.removeFollowing(this.getPlayerName());
         Player player = WGuild.getInstance().getServer().getPlayerExact(playerName);
         if (player != null && playerCacheConfig.getNoticeSwitch()) {
-            player.sendTip(TextFormat.colorize("&c玩家 「&e" + playerName + "&c」 &c取消关注了你"));
+            player.sendTip(TextFormat.colorize("&c玩家 「&e" + player.getName() + "&c」 &c取消关注了你"));
         }
         Player player0 = WGuild.getInstance().getServer().getPlayerExact(this.getPlayerName());
         if (player0 != null && this.getNoticeSwitch()) {
