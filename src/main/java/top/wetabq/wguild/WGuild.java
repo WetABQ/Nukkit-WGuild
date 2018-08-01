@@ -4,6 +4,7 @@ import cn.nukkit.Server;
 import cn.nukkit.plugin.PluginBase;
 import top.wetabq.wguild.command.FBanCommand;
 import top.wetabq.wguild.command.FriendCommand;
+import top.wetabq.wguild.config.LanguageConfig;
 import top.wetabq.wguild.config.MasterConfig;
 import top.wetabq.wguild.listener.PlayerEventListener;
 
@@ -17,6 +18,7 @@ public class WGuild extends PluginBase {
 
     private static WGuild plugin;
     private MasterConfig masterConfig;
+    private LanguageConfig languageConfig;
 
     @Override
     public void onLoad() {
@@ -28,6 +30,7 @@ public class WGuild extends PluginBase {
     public void onEnable() {
         this.masterConfig = new MasterConfig();
         this.getServer().getPluginManager().registerEvents(new PlayerEventListener(),this);
+        this.languageConfig = new LanguageConfig(this.getServer().getLanguage().getLang().equals("chs") ? 1 : 0);
 
         Server.getInstance().getCommandMap().register("", new FriendCommand());
         Server.getInstance().getCommandMap().register("", new FBanCommand());
@@ -45,6 +48,10 @@ public class WGuild extends PluginBase {
 
     public static WGuild getInstance() {
         return plugin;
+    }
+
+    public LanguageConfig getLanguageConfig() {
+        return languageConfig;
     }
 
     public MasterConfig getMasterConfig() {

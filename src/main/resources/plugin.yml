@@ -1,6 +1,6 @@
 name: WGuild
 main: top.wetabq.wguild.WGuild
-version: "1.0.1"
+version: "1.0.2"
 api: ["1.0.0"]
 load: POSTWORLD
 author: WetABQ

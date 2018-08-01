@@ -133,15 +133,15 @@ public class FriendCommand extends Command {
                                         PlayerCacheConfig playerCacheConfig1 = new PlayerCacheConfig(args[1]);
                                         if (player1 != null) {
                                             if (playerCacheConfig1.getNoticeSwitch()) {
-                                                player.sendMessage(Constant.TITLE + TextFormat.colorize("&l&c>>> &r&e「&c" + player1.getName() + "&e」 &6对他说 &e" + args[2] + " &l&c<<<"));
+                                                player.sendMessage(Constant.TITLE + TextFormat.colorize("&l&c>>> &r&e &6你对他说 &e" + args[2] + " &l&c<<<"));
                                                 player1.sendMessage(Constant.TITLE + TextFormat.colorize("&l&c>>> &r&e「&c" + player.getName() + "&e」 &6对你说: &e" + args[2] + " &l&c<<<"));
                                             } else {
-                                                player1.sendMessage(Constant.TITLE + TextFormat.colorize("&c对方关闭了好友提醒,已自动发送&l&e留言"));
-                                                playerCacheConfig1.addFeedback(args[1], args[2]);
+                                                player.sendMessage(Constant.TITLE + TextFormat.colorize("&c对方关闭了好友提醒,已自动发送&l&e留言"));
+                                                playerCacheConfig1.addFeedback(player.getName(), args[2]);
                                             }
                                         } else {
-                                            player1.sendMessage(Constant.TITLE + TextFormat.colorize("&c好友不在线,已自动发送&l&e留言"));
-                                            playerCacheConfig1.addFeedback(args[1], args[2]);
+                                            player.sendMessage(Constant.TITLE + TextFormat.colorize("&c好友不在线,已自动发送&l&e留言"));
+                                            playerCacheConfig1.addFeedback(player.getName(), args[2]);
                                         }
                                     } else {
                                         player.sendMessage(Constant.TITLE + TextFormat.RED + "服务器关闭了该功能");
@@ -217,7 +217,6 @@ public class FriendCommand extends Command {
                     break;
                 default:
                     sendHelp(player);
-                    player.sendMessage(Constant.TITLE + TextFormat.RED + "你输入的子命令不存在 (ps:括号里面的是简写 可以一样使用)");
             }
         } else {
             sender.sendMessage("请在游戏里使用命令");
@@ -241,7 +240,7 @@ public class FriendCommand extends Command {
         sender.sendMessage(TextFormat.GOLD + "----WGuild Friend----");
         sender.sendMessage(TextFormat.AQUA + "关注: " + playerCacheConfig.getFollowersCount());
         sender.sendMessage(TextFormat.AQUA + "粉丝: " + playerCacheConfig.getFollowingCount());
-        sender.sendMessage(TextFormat.AQUA + "好友提醒: " + ((playerCacheConfig.getNoticeSwitch()) ? "开启" : "关闭"));
+        sender.sendMessage(TextFormat.AQUA + "好友提醒: " + playerCacheConfig.getNoticeSwitch());
     }
 
 }
